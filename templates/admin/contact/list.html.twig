@@ -1,0 +1,51 @@
+{% extends "admin/master.html.twig" %}
+    {% block body %}			
+        <div class="card-box mb-30">
+            <div class="clearfix">
+                <div class="pull-left">
+                    <h2 class="h4 pd-20">{{title}}</h2>
+                </div>
+            </div>
+            <table class="data-table table nowrap">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Subject</th>
+                        <th>Email</th>
+                        <th>Time</th>
+                        <th>Date</th>
+                        {# <th>Img</th> #}
+                        <th class="datatable-nosort">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for list in contact %}
+                        <tr>
+                            <td>
+                                <h5 class="font-16">{{list.name}}</h5>
+                            </td>
+                            <td>
+                                <h5 class="font-16">{{list.subject}}</h5>
+                            </td>
+                            <td>{{list.email}}</td>
+                            <td>{{list.time|date('H:i')}}</td>
+                            <td>{{list.time|date('Y-m-d')}}</td>
+                            {# <td><a href="{{ path('app_image',{id:list.id})}}">Images</a></td> #}
+							<td>
+								<div class="table-actions">
+									<a href="{{ path('client_contact_detail',{'id':list.id})}}" data-color="#265ed7"><i class="icon-copy dw dw-eye"></i></a>
+									<a href="{{ path('client_contact_remove',{'id':list.id})}}" data-color="#e95959"><i class="icon-copy dw dw-delete-3"></i></a>
+								</div>
+							</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endblock %}
+    
+    
+    
+    
+    
+    

@@ -1,0 +1,104 @@
+{% extends "client/master.html.twig" %}
+{% block body %}
+	<!-- details -->
+	<section class="section section--head section--gradient">
+		<div class="container">
+			<!-- article -->
+			<div class="article" style="justify-content: center;">
+				{# <div class="row"> #}
+                    <!-- Image player -->
+					{# <div class="col-12 col-xl-8">
+					</div> #}
+					<div class="col-12">
+						<!-- article content -->
+						<div class="article__content">
+							<h1>{{detail.name}}</h1>
+                            <img src="{{detail.image}}" style="width: 400px; height:auto;" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+							<ul class="list">
+								<li>{{detail.country}}</li>
+                                {% set age = date().diff(date(detail.birth)).y %}
+								<li>{{age}} Years old</li>
+								<li>Height: {{detail.height}}</li>
+							</ul>
+                            <ul class="list">
+								<li><b>Birth Name:</b>{{detail.birthName}}</li>
+							</ul>
+                            <ul class="list">
+								<li><b>Born:</b>{{detail.birth|date('F j, Y')}} in {{detail.born}}, {{detail.country}}</li>
+							</ul>
+							<h4><b>Movie: </b></h4>
+							{% for movies in actor.movie %}
+                                <tr>
+                                    <th scope="row"><a href="https://www.google.com/search?q={{movies.title}}" rel="search" target="_blank">{{movies.title}} , </a></th>
+                                </tr>
+                            {% endfor %}  
+							<h4><b></b></h4>  
+                            <h4><b>Biography: </b></h4>                          
+							<p>{{ detail.biography|raw }}</p>
+                            <h4><b>Photos of {{detail.name}} </b></h4> 
+                            <div class="row row--grid">
+                                <div class="col-12">
+                                    <h5 class="sidebar__title"><b></b></h5>
+                                </div>
+                                {% for list in detail.imageShares %}
+                                <div class="col-6 col-sm-4 col-md-3 col-xl-6">
+                                    <div class="card">
+                                        <a href="{{list.img}}" target="_blank" class="card__cover">
+                                            <img src="{{list.img}}" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                {% endfor %} 
+                            </div>
+                            <!-- end new items -->
+                        </div>
+						<!-- end article content -->
+					</div>
+					<!-- end article -->
+				{# </div> #}
+			</section>
+			<!-- end details -->
+
+
+			<!-- similar -->
+			<section class="section">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<h2 class="section__title">
+								<a href="category.html">Similar actor</a>
+							</h2>
+						</div>
+						<div class="col-12">
+							<div class="section__carousel-wrap">
+								<div class="section__carousel owl-carousel" id="similar">
+                                    {% for similars in similar %}
+									<div class="card">
+										<a href="{{ path('client_detail',{'id':similars.id})}}" class="card__cover">
+											<img src="{{similars.image}}" alt="">
+										</a>
+										<h3 class="card__title">
+											<a href="{{ path('client_detail',{'id':similars.id})}}">{{similars.name}}</a>
+										</h3>
+										<ul class="card__list">
+											<li>Free</li>
+											<li>Action</li>
+											<li>2019</li>
+										</ul>
+									</div>
+                                    {% endfor %}
+								</div>
+
+								<button class="section__nav section__nav--cards section__nav--prev" data-nav="#similar" type="button">
+									<svg width="17" height="15" viewbox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.25 7.72559L16.25 7.72559" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.2998 1.70124L1.2498 7.72524L7.2998 13.7502" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+								</button>
+								<button class="section__nav section__nav--cards section__nav--next" data-nav="#similar" type="button">
+									<svg width="17" height="15" viewbox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.75 7.72559L0.75 7.72559" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.7002 1.70124L15.7502 7.72524L9.7002 13.7502" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- end similar -->
+		{% endblock %}

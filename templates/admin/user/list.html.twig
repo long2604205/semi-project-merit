@@ -1,0 +1,49 @@
+{% extends "admin/master.html.twig" %}
+{% block body %}
+			<div class="card-box pb-10">
+				<div class="clearfix">
+					<div class="pull-left">
+						<h2 class="h4 pd-20">{{title}}</h2>
+					</div>
+					<div class="pull-right">
+						<a href="{{ path('user_create')}}" class="btn btn-primary btn-sm scroll-click" rel="content-y" role="button">ADD NEW USER</a>
+					</div>
+				</div>
+				<table class="data-table table nowrap">
+					<thead>
+						<tr>
+							<th class="table-plus">Name</th>
+							<th>Username</th>
+							<th>Email</th>
+							<th>Phone</th>
+							<th class="datatable-nosort">Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+					{% for list in user %}
+						<tr>
+							<td class="table-plus">
+								<div class="name-avatar d-flex align-items-center">
+									<div class="avatar mr-2 flex-shrink-0">
+										<img src="{{ list.image }}" class="border-radius-100 shadow" width="40" height="40" alt="">
+									</div>
+									<div class="txt">
+										<div class="weight-600">{{list.name}}</div>
+									</div>
+								</div>
+							</td>
+							<td>{{list.username}}</td>
+							<td>{{list.email}}</td>
+							<td>{{list.phone}}</td>							
+							<td>
+								<div class="table-actions">
+									<a href="user/edit/{{list.id}}" data-color="#265ed7"><i class="icon-copy dw dw-edit2"></i></a>
+									<a href="user/delete/{{list.id}}" data-color="#e95959"><i class="icon-copy dw dw-delete-3"></i></a>
+								</div>
+							</td>
+						</tr>
+					{% endfor %}
+					</tbody>
+				</table>
+			</div>
+{% endblock %}

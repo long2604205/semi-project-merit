@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Start head -->
+		{{ include('client/widgets/head.html.twig') }}
+		<!-- End head -->
+	</head>
+
+	<body>
+		<!-- Start header -->
+		{{ include('client/widgets/navbar.html.twig') }}
+		<!-- End header -->
+
+		{% block body %}{% endblock %}
+
+		<!-- footer -->
+		{{ include('client/widgets/footer.html.twig') }}
+		<!-- end footer -->
+
+		<!-- js -->
+	{{ include('client/widgets/script.html.twig') }}
+		<!-- end js -->
+	</body>
+</html>

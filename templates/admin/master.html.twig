@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Start head -->
+	{{ include('admin/widgets/head.html.twig') }}
+	<!-- End head -->
+</head>
+<body>
+	<!-- Start pre-load -->
+	{{ include('admin/widgets/pageload.html.twig') }}
+	<!-- End pre-load -->
+
+	<!-- Start header -->
+	{{ include('admin/widgets/navbar.html.twig') }}
+	<!-- End header -->
+
+	<!-- Start side bar -->
+	{{ include('admin/widgets/sidebar.html.twig') }}
+	<!-- End side bar -->
+
+	<div class="main-container">
+		<div class="pd-ltr-20">
+			{# {{ include('admin/system/system.html.twig') }} #}
+		{% block body %}{% endblock %}
+		</div>
+	</div>
+	<!-- js -->
+	{{ include('admin/widgets/script.html.twig') }}
+	<!-- end js -->
+</body>
+</html>

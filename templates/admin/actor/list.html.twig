@@ -1,0 +1,61 @@
+{% extends "admin/master.html.twig" %}
+{% block body %}			
+	<div class="card-box mb-30">
+		<div class="clearfix">
+			<div class="pull-left">
+				<h2 class="h4 pd-20">{{title}}</h2>
+			</div>
+			<div class="pull-right">
+				<a href="{{ path('create_actor')}}" class="btn btn-primary btn-sm scroll-click" rel="content-y" role="button">ADD NEW ACTOR</a>
+			</div>
+		</div>
+		<table class="data-table table nowrap">
+			<thead>
+				<tr>
+					<th class="table-plus datatable-nosort">Image</th>
+					<th>Name</th>
+					<th>Birthday</th>
+					<th>Gender</th>
+					<th>Country</th>
+					<th>Height</th>
+					{# <th>Img</th> #}
+					<th class="datatable-nosort">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for list in actors %}
+					<tr>
+						<td class="table-plus">
+							<img src="{{ list.image }}" width="70" height="70" alt="">
+						</td>
+						<td>
+							<h5 class="font-16">{{list.name}}</h5>
+						</td>
+						<td>{{list.birth|date('d/m/Y')}}</td>
+						<td>{{list.gender == 1 ? 'Male' : 'Female'}}</td>
+						<td>{{list.country}}</td>
+						<td>{{list.height}}</td>
+						{# <td><a href="{{ path('app_image',{id:list.id})}}">Images</a></td> #}
+						<td>
+							<div class="dropdown">
+								<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+									<i class="dw dw-more"></i>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+									<a class="dropdown-item" href="{{ path('app_detail',{'id':list.id})}}"><i class="dw dw-eye"></i> View</a>
+									<a class="dropdown-item" href="{{ path('edit_actor',{'id':list.id})}}"><i class="dw dw-edit2"></i> Edit</a>
+									<a class="dropdown-item" href="{{ path('app_actordelete',{'id':list.id})}}"><i class="dw dw-delete-3"></i> Delete</a>
+								</div>
+							</div>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}
+
+
+
+
+

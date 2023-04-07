@@ -1,0 +1,22 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+dashboard:
+    path: /admin/dashboard
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+        template: "admin/system/system.html.twig"
+soon:
+    path: /coming-soon
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+        template: "client/system/soon.html.twig"
+
+
+# config/routes.yaml
+
+not_found:
+    path: /{any}
+    controller: App\Controller\ErrorController::notFound
+    requirements:
+        any: .+

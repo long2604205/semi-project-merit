@@ -1,0 +1,109 @@
+{% extends "admin/master.html.twig" %}
+{% block body %}	
+<!-- horizontal Basic Forms Start -->
+<div class="pd-20 card-box mb-30">
+	<div class="clearfix">
+		<div class="pull-left">
+			<h4 class="text-blue h4">{{title}}</h4>
+		</div>
+	</div>
+    {{ form_start(form) }}
+		<div class="form-group">
+			<label>Name</label>
+			{{ form_widget(form.name,{
+				'attr':{
+					'class':'form-control',
+					'type': 'text'
+				}
+			}) }}
+		</div>
+		<div class="form-group">
+			<label>Birth Name</label>
+			{{ form_widget(form.birthName,{
+				'attr':{
+					'class':'form-control',
+					'type': 'text'
+				}
+			}) }}
+		</div>
+		<div class="form-group">
+			<label>Nick Name</label>
+			{{ form_widget(form.nickName,{
+				'attr':{
+					'class':'form-control',
+					'type': 'text'
+				}
+			}) }}
+		</div>
+
+		<div class="form-group">
+			<label>Gender</label>
+			{{ form_widget(form.gender,{
+				'attr':{
+					'class':'custom-select col-12',
+				}
+
+			}) }}			
+		</div>
+		<div class="form-group">
+			<label>Birthday</label>
+			{{ form_widget(form.birth,{
+				'attr':{
+					'class':'form-control',
+					'placeholder': 'Select Date'
+				}
+			}) }}
+		</div>
+		<div class="form-group">
+			<label>Born</label>
+			{{ form_widget(form.born,{
+				'attr':{
+					'class':'form-control',
+					'type': 'text'
+				}
+			}) }}
+		</div>
+		<div class="form-group">
+			<label>Country</label>
+			{{ form_widget(form.country,{
+				'attr':{
+					'class':'form-control',
+					'type': 'text'
+				}
+			}) }}
+		</div>
+		<div class="form-group">
+			<label>Height</label>
+			{{ form_widget(form.height,{
+				'attr':{
+					'class':'form-control',
+					'type': 'text'
+				}
+			}) }}
+		</div>
+		<div class="form-group">
+			<label>Image</label>
+			{{ form_widget(form.image,{
+				'attr':{
+					'class':'form-control-file form-control height-auto',
+					'type': 'file'
+				}
+			}) }}
+		</div>
+		<div class="form-group">
+			<label>Biography</label>
+			{{ form_widget(form.biography,{
+				'attr':{
+					'class':'textarea_editor form-control border-radius-0',
+					'placeholder' : 'Enter text ...',
+				}
+			}) }}
+		</div>
+		<div class="form-group text-right">
+			<a href="{{ path('app_actor')}}" class="btn btn-secondary">Back</a>
+			<button type="submit" class="btn btn-primary">ADD</button>
+		</div>
+	{{ form_end(form) }}
+</div>
+<!-- horizontal Basic Forms End -->
+{% endblock %}

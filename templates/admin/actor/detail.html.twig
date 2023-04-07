@@ -1,0 +1,88 @@
+{% extends "admin/master.html.twig" %}
+{% block body %}
+	<div class="card-box mb-30">
+		<div class="clearfix">
+			<div class="pull-left">
+				<h2 class="h4 pd-20">Biography</h2>
+			</div>
+		</div>
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-30">
+                <div class="pd-20 card-box height-100-p">
+                    <div class="profile-photo">
+                        <img src="{{detail.image}}" alt="" class="avatar-photo">
+                    </div>
+                    <h5 class="text-center h5 mb-0">{{detail.name}}</h5>
+                    <p class="text-center text-muted font-14">Nick Name: {{detail.nickName}}</p>
+                    <div class="profile-info">
+                        <h5 class="mb-20 h5 text-blue">Overview</h5>
+                        <ul>
+                            <li>
+                                <span>Birth Name:</span>
+                                {{detail.birthName}}
+                            </li>
+                            <li>
+                                <span>Birthday</span>
+                                {{detail.birth|date('F j, Y')}}
+                            </li>
+                            <li>
+                                <span>Born</span>
+                                {{detail.born}}
+                            </li>
+                            <li>
+                                <span>Country:</span>
+                                {{detail.country}}
+                            </li>
+                            <li>
+                                <span>Height</span>
+                                {{detail.height}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 mb-30">
+                <div class="product-detail-desc pd-20 card-box height-100-p">
+                    <h4 class="mb-20 pt-20">{{detail.name}}</h4>
+                    {{ detail.biography|raw }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-30">
+                <div class="pd-20 card-box height-100-p">
+                    <h5 class="text-center h5 mb-0">The Movies</h5>
+                    <p class="text-center text-muted font-14"></p>
+                    <p class="text-center text-muted font-14"><a href="{{ path('add_movie',{'id':detail.id})}}" class="btn btn-primary btn-sm scroll-click" rel="content-y" role="button">ADD NEW MOVIE</a>
+                    </p>
+                    <div class="profile-info">
+                        <table class="table table-striped text-center">
+                            <tbody>
+                                {% for movies in actor.movie %}
+                                <tr>
+                                    <th scope="row"><a href="https://www.google.com/search?q={{movies.title}}" rel="search" target="_blank">{{movies.title}}</a></th>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 mb-30">
+                <div class="product-detail-desc pd-20 card-box height-100-p">
+                    <div class="pull-right">
+                        <a href="{{ path('app_addimage',{'id':detail.id})}}" class="btn btn-primary btn-sm scroll-click" rel="content-y" role="button">UPLOAD PHOTOS</a>
+                    </div>
+                    <h4 class="mb-20 pt-20">The photos of {{detail.name}}</h4>
+                    <div class="row">
+                        {% for list in actor.imageShares %}
+                        <div class="col-sm-12 col-md-6 mt-4">
+                            <img src="{{list.img}}" alt="">
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+{% endblock %}

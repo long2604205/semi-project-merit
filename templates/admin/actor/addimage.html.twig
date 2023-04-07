@@ -1,0 +1,34 @@
+{% extends "admin/master.html.twig" %}
+    {% block body %}	
+    <!-- horizontal Basic Forms Start -->
+    <div class="pd-20 card-box mb-30">
+        <div class="clearfix">
+            <div class="pull-left">
+                <h4 class="text-blue h4">Upload a new photo for: {{actor.name}}</h4>
+            </div>
+        </div>
+        {{ form_start(form) }}
+            {# <div class="form-group">
+                <label>Actor</label>
+                {{ form_widget(form.actor,{
+                    'attr':{
+                        'value':"1",
+                    }
+                }) }}
+            </div> #}
+            <div class="form-group">
+                <label>Image</label>
+                {{ form_widget(form.img,{
+                    'attr':{
+                        'class':'form-control-file form-control height-auto',
+                    }
+                }) }}
+            </div>
+            <div class="form-group text-right">
+                <button type="submit" class="btn btn-primary">ADD</button>
+            </div>
+        {{ form_end(form) }}
+    </div>
+    <!-- horizontal Basic Forms End -->
+    {% endblock %}
+    
